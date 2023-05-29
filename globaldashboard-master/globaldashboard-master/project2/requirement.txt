@@ -1,4 +1,0 @@
-pip install django
-pip install django-otp django-otp-email django-otp-sms
-pip install djangorestframework
-pip install twilio
