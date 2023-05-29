@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <form id="searchForm">
+            <label for="search-input">Search for City/Country/Language:</label> 
+            <input type="text" id="search-input" placeholder="Search...">
+            <!-- class="search-bar" --> 
+            <ul id="suggestions-list"></ul>
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+    <script src="{% static 'js/search.js' %}"></script>
+</body>
+
+</html>
