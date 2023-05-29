@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .search-container {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .search-bar {
+      border-radius: 10px;
+      width: 500px;
+      height: 40px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .search-button {
+      border-radius: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="search-container">
+    <form id="searchForm">
+      <input type="text" class="search-bar" id="searchInput" placeholder="Search...">
+      <button type="submit" class="search-button">Search</button>
+    </form>
+  </div>
+
+  <script>
+    var searchForm = document.getElementById("searchForm");
+
+    searchForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      var searchInput = document.getElementById("searchInput");
+      var searchTerm = searchInput.value;
+
+      // Perform search or any other desired action with the entered search term
+
+      // Reset the form
+      searchForm.reset();
+    });
+  </script>
+
+</body>
+</html>

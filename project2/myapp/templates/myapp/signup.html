@@ -1,0 +1,177 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>Signup Page</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    function redirectToTarget() {
+        window.location.href = "{% url 'login_page' %}";
+    }
+    function closeErrorBanner() {
+      var errorBanner = document.getElementById("error-banner");
+      errorBanner.style.display = "none";
+    }
+  </script>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 400px;
+      margin: 3% auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    input{
+      width: 94.5%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-bottom: 15px;
+    }
+
+    select{
+      width: 40%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-bottom: 15px;
+    }
+    
+    .button1 {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%;
+    }
+    
+    .button1:hover {
+      background-color: #45a049;
+    }
+
+    .button2 {
+      background-color: #fff;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .button2:hover {
+      background-color: #c8c8c8;
+    }
+
+    .button3 {
+      background-color: #fff;
+      color: #000;
+      padding: 10px 5px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 20%;
+    }
+
+    .button3:hover {
+      background-color: #c8c8c8;
+    }
+
+    .input1{
+      width: 40%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-bottom: 15px;
+    }
+
+    .error-banner {
+        position: relative;
+        background-color: red;
+        opacity: 70%;
+        color: white;
+        padding: 5px;
+        display: none;
+    }
+
+    .error-message {
+      font-weight: bold;
+    }
+
+    .close-button {
+      background-color: white;
+      border: none;
+      color: red;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <div id="error-banner" class="error-banner">
+        <span class="error-message">Error message goes here</span>
+        <button class="close-button" onclick="closeErrorBanner()">Close</button>
+    </div>
+   <div class="container">
+    <h1>Signup</h1>
+    <form id="signup_form"> <!--action="{% url 'signup' %}" method="POST"> -->
+      {% csrf_token %}
+      <label for="fname">First Name:</label>
+      <input type="text" id="fname" name="fname" placeholder="Enter your First Name" required>
+
+      <label for="lname">Last Name:</label>
+      <input type="text" id="lname" name="lname" placeholder="Enter your Last Name" required>
+
+      <label for="gender">Gender:</label>
+      <select id="gender">
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+        <option value="O">Other</option>
+      </select>
+
+      <!-- <form> -->
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" placeholder="youremailaddress@website.com" required>
+        
+      <!-- <label for="otp">Otp:</label>
+      <input class="input1" type="password" id="otp" name="otp" placeholder="******">
+
+      <button class="button3" type="sendotp">Send otp</button> -->
+      <!-- </form> -->
+
+      <label for="pnumber">Phone Number:</label>
+      <input type="text" id="pnumber" name="pnumber" placeholder="999-999-9999" required>
+
+      <button class="button1" type="submit">Signup</button>
+    </form>
+    <div id="signup-api-url" data-url="{% url 'signup' %}"></div>
+    <script src="{% static 'js/signup.js' %}"></script>
+    <button onclick="redirectToTarget()" class="button2" type="Login">Login</button>
+  </div>
+  
+</body>
+</html>
